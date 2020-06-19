@@ -3,6 +3,13 @@
     "name": "disqusjs-proxy",
     "routes": [
         {
+            "src": "/uploads/(.*)",
+            "headers": {
+                "cache-control": "public, max-age=[32]"
+            },
+            "dest": "https://c.disquscdn.com/uploads/$1"
+        },
+        {
             "src": "/(.*)",
             "headers": {
                 "cache-control": "public, max-age=[32]"
